@@ -27,6 +27,15 @@ class LinkedList {
             tail = newNode;
             length = 1;
         }
+        /* LinkedList destructor */
+        ~LinkedList() {
+            Node* temp = head;
+            while (head) {
+                head = head -> next;
+                delete temp;
+                temp = head;
+            }
+        }
         /* Print LinkedList */
         void printList() {
             Node* temp = head;
@@ -79,6 +88,6 @@ int main() {
         4
 
     */
-       
+   delete myLinkedList; //delete the LinkedList
 }
 
