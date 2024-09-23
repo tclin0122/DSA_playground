@@ -64,6 +64,40 @@ class LinkedList {
         void getLength() {
             cout << "Length: " << length << endl;
         }
+        /* Append LinkedList*/
+        void append(int value) {
+            Node* newNode = new Node(value);
+            // check if the list is empty
+            if (length == 0) {
+                head = newNode;
+                tail = newNode;
+            } else {
+                tail->next = newNode;
+                tail = newNode;
+            }
+            length++;
+        }
+        /* Delete Last*/
+        void deleteLast() {
+            // check if the list is empty
+            if (length == 0) return;
+            // create to node pointer
+            Node* temp = head;
+            if (length == 1) {
+                head = nullptr;
+                tail = nullptr;
+            } else {
+                Node* pre = head;
+                while (temp -> next) {
+                    pre = temp;
+                    temp = temp -> next;
+                }
+                tail = pre;
+                tail -> next = nullptr;
+            }
+            delete temp;
+            length--;
+        }
 
 };
 
@@ -88,6 +122,8 @@ int main() {
         4
 
     */
-   delete myLinkedList; //delete the LinkedList
+   myLinkedList->append(3);
+   cout << "\nLinked List:\n";
+   myLinkedList->printList();
 }
 
