@@ -110,6 +110,19 @@ class LinkedList {
             }
             length++;
         }
+        /* Delete first*/
+        void deleteFirst() {
+            if (length == 0) return;
+            Node* temp = head;
+            if (length == 1) {
+                head = nullptr;
+                tail = nullptr;
+            } else {
+                head = head->next;
+            }
+            delete temp;
+            length--;
+        }
 
 };
 
