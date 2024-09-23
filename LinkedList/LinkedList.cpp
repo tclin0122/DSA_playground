@@ -123,6 +123,17 @@ class LinkedList {
             delete temp;
             length--;
         }
+        /* Get value*/
+        Node* get(int index) {
+            if (index < 0 || index>= length) {
+                return nullptr;
+            }
+            Node* temp = head;
+            for (int i = 0; i < index; i++) {
+                temp = temp->next;
+            }
+            return temp;
+        }
 
 };
 
