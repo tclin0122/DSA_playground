@@ -161,6 +161,19 @@ class LinkedList {
             length++;
             return true;
         }
+        /* delete node*/
+        void deleteNode(int index) {
+            if (index < 0 || index >= length) return;
+            if (index == 0) return deleteFirst();
+            if (index == length) return deleteLast();
+
+            Node* prev = get(index - 1);
+            Node* temp = prev->next;
+
+            prev->next = temp->next;
+            delete temp;
+            length--;
+        }
 
 };
 
