@@ -174,6 +174,23 @@ class LinkedList {
             delete temp;
             length--;
         }
+        /* reverse the list */
+        void reverse() {
+            // first switch the head and the tail
+            Node* temp = head;
+            head = tail;
+            tail = temp;
+            // create two addition nodes to help the reversing process
+            Node* after = temp->next;
+            Node* before = nullptr;
+            // reverse process loop
+            for (int i = 0; i < length; i++) {
+                after = temp->next;
+                temp->next = before;
+                before = temp;
+                temp = after;
+            }
+        }
 
 };
 
